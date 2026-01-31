@@ -46,7 +46,7 @@ export async function generateExcelTracker(data: ProjectData): Promise<Buffer> {
     const meetingSheet = workbook.addWorksheet('Meeting Notes');
     setupMeetingNotes(meetingSheet, data);
 
-    return (await workbook.xlsx.writeBuffer()) as Buffer;
+    return (await workbook.xlsx.writeBuffer()) as unknown as Buffer;
 }
 
 function setupDashboard(sheet: ExcelJS.Worksheet, data: ProjectData) {
